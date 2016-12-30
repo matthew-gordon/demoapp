@@ -3,5 +3,10 @@
   "version": "1.0.0",
   "main": "app.js",
   "author": "Matthew Gordon <laxredemption5525@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.14.0",
+    "knex": "^0.12.6",
+    "pg": "^6.1.2"
+  }
 }
