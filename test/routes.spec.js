@@ -23,7 +23,7 @@ describe('API Routes', () => {
         res.body[0].should.have.property('name');
         res.body[0].name.should.equal('Matt Gordon');
         res.body[0].should.have.property('email');
-        res.body[0].email.should.equal('Matt@lax.com');
+        res.body[0].email.should.equal('matt@lax.com');
         res.body[0].should.have.property('bio');
         res.body[0].bio.should.equal('This is a relatively short bio.');
         res.body[0].should.have.property('super_user');
