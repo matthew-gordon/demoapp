@@ -12,7 +12,7 @@ if (process.env.NODE_ENV !== 'test') {
   app.use(logger('dev'));
 }
 app.use(bodyParser.json());
-app.user(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/', routes);
 
@@ -30,7 +30,7 @@ app.use((req, res, next) => {
 if (app.get('env') === 'development') {
   app.use((err, req, res, next) => {
     res.status(err.status || 500);
-    res.send(`There was and error; message: ${err.message} error: ${err}`);
+    res.send(`There was and error. Message: ${err.message}, ${err}`);
   });
 }
 
@@ -38,7 +38,7 @@ if (app.get('env') === 'development') {
 // no stacktrace leaked to user
 app.use((err, req, res, next) => {
   res.status(err.status || 500);
-  res.send(`There was and error; message: ${err.message} error: ${{}}`);
+  res.send(`There was and error. Message: ${err.message}, ${{}}`);
 });
 
 
