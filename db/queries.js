@@ -24,6 +24,10 @@ function update(userID, updates) {
   return users().where('id', parseInt(userID)).update(updates);
 }
 
+function deleteItem(userID) {
+  return users().where('id', parseInt(userID)).del();
+}
+
 module.exports = {
   getAll: getAll,
   getSingle: getSingle,
