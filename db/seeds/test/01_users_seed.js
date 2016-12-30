@@ -25,6 +25,9 @@ exports.seed = function(knex, Promise) {
           email: 'josh@lax.com',
           bio: 'This is a relatively short bio.'
         }),
-      ]);
+      ])
+      .then(() => {
+        return knex.raw("SELECT setval('users_id_seq', (SELECT MAX(id) FROM users))");
+      });
     });
 };
