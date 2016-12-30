@@ -14,7 +14,7 @@ if (process.env.NODE_ENV !== 'test') {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use('/', routes);
+app.use('/api/v1', routes);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
@@ -51,3 +51,5 @@ app.use((err, req, res, next) => {
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
+
+module.exports = app;
