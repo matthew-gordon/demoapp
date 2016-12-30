@@ -145,4 +145,40 @@ describe('API Routes', () => {
     });
   });
 
+  describe('DELETE /api/v1/users/:id', () => {
+    it('should delete a user by id', (done) => {
+      chai.request(server)
+      .delete('/api/v1/users/1')
+      .end((error, response) => {
+        response.should.have.status(200);
+        response.should.be.json;
+        response.body.should.be.a('object');
+        response.body.should.have.property('name');
+        response.body.name.should.equal('Matt Gordon');
+        response.body.should.have.property('email');
+        response.body.email.should.equal('matt@lax.com');
+        response.body.should.have.property('bio');
+        response.body.bio.should.equal('This is a relatively short bio.');
+        response.body.should.have.property('super_user');
+        response.body.bio.should.equal(true);
+        chai.request(server)
+        .get('/api/v1/users')
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.should.be.json;
+          res.should.be.a('array');
+          res.body.length.should.equal(2);
+          res.body[0].should.have.property('name');
+          res.body[0].name.shoud.equal('Brian Gordon');
+          res.body[0].should.have.property('email');
+          res.body[0].email.shoud.equal('brian@lax.com');
+          res.body[0].should.have.property('bio');
+          res.body[0].bio.shoud.equal('This is a relatively short bio.');
+          res.body[0].should.have.property('super_user');
+          res.body[0].shoud.equal(false);
+        });
+      });
+    });
+  });
+
 });
