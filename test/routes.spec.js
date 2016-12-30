@@ -102,30 +102,56 @@ describe('API Routes', () => {
     });
   });
 
+  // describe('PUT /api/v1/users/:id', () => {
+  //   it('should update a user by id', (done) => {
+  //     chai.request(server)
+  //     .put('/api/v1/users/1')
+  //     .send({
+  //       name: 'Matty G',
+  //       email: 'mattyice@lax.com',
+  //       bio: 'This is a relatively horter biogrpahy.'
+  //     })
+  //     .end((err, res) => {
+  //       res.body.should.have.status(200);
+  //       res.should.be.json;
+  //       res.body.should.be.a('object');
+  //       res.body.should.have.property('name');
+  //       res.body.name.should.equal('Matty G');
+  //       res.body.sjould.have.property('email');
+  //       res.body.email.should.equal('mattyice@lax.com');
+  //       res.body.should.have.property('bio');
+  //       res.body.bio.should.equal('This is a relatively horter biogrpahy.');
+  //       res.body.should.have.property('super_user');
+  //       res.body.super_user.should.equal(true);
+  //       done();
+  //     });
+  //   });
+  // });
+
   describe('PUT /api/v1/users/:id', () => {
-    it('should update a user by id', (done) => {
-      chai.request(server)
-      .put('/api/v1/users/1')
-      .send({
-        name: 'Matty G',
-        email: 'mattyice@lax.com',
-        bio: 'This is a relatively horter biogrpahy.'
-      })
-      .end((err, res) => {
-        res.body.should.have.status(200);
-        res.should.be.json;
-        res.body.should.be.a('object');
-        res.body.should.have.property('name');
-        res.body.name.should.equal('Matty G');
-        res.body.sjould.have.property('email');
-        res.body.email.should.equal('mattyice@lax.com');
-        res.body.should.have.property('bio');
-        res.body.bio.should.equal('This is a relatively horter biogrpahy.');
-        res.body.should.have.property('super_user');
-        res.body.super_user.should.equal(true);
-        done();
-      });
+  it('should update a user', (done) => {
+    chai.request(server)
+    .put('/api/v1/users/1')
+    .send({
+      name: 'Matty G',
+      email: 'mattyice@lax.com',
+      bio: 'This is a relatively horter biogrpahy.'
+    })
+    .end((err, res) => {
+      res.should.have.status(200);
+      res.should.be.json;
+      res.body.should.be.a('object');
+      res.body.should.have.property('name');
+      res.body.name.should.equal('Matty G');
+      res.body.should.have.property('email');
+      res.body.email.should.equal('mattyice@lax.com');
+      res.body.should.have.property('bio');
+      res.body.bio.should.equal('This is a relatively horter biogrpahy.');
+      res.body.should.have.property('super_user');
+      res.body.super_user.should.equal(true);
+      done();
     });
   });
+});
 
 });

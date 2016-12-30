@@ -27,5 +27,6 @@ function update(userID, updates) {
 module.exports = {
   getAll: getAll,
   getSingle: getSingle,
-  add: add
+  add: add,
+  update: update
 };
