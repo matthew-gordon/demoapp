@@ -32,5 +32,6 @@ module.exports = {
   getAll: getAll,
   getSingle: getSingle,
   add: add,
-  update: update
+  update: update,
+  deleteItem: deleteItem
 };
