@@ -160,22 +160,23 @@ describe('API Routes', () => {
         response.body.should.have.property('bio');
         response.body.bio.should.equal('This is a relatively short bio.');
         response.body.should.have.property('super_user');
-        response.body.bio.should.equal(true);
+        response.body.super_user.should.equal(true);
         chai.request(server)
         .get('/api/v1/users')
         .end((err, res) => {
           res.should.have.status(200);
           res.should.be.json;
-          res.should.be.a('array');
+          res.body.should.be.a('array');
           res.body.length.should.equal(2);
           res.body[0].should.have.property('name');
-          res.body[0].name.shoud.equal('Brian Gordon');
+          res.body[0].name.should.equal('Brian Gordon');
           res.body[0].should.have.property('email');
-          res.body[0].email.shoud.equal('brian@lax.com');
+          res.body[0].email.should.equal('brian@lax.com');
           res.body[0].should.have.property('bio');
-          res.body[0].bio.shoud.equal('This is a relatively short bio.');
+          res.body[0].bio.should.equal('This is a relatively short bio.');
           res.body[0].should.have.property('super_user');
-          res.body[0].shoud.equal(false);
+          res.body[0].super_user.should.equal(false);
+          done();
         });
       });
     });
