@@ -76,4 +76,30 @@ describe('API Routes', () => {
     });
   });
 
+  describe('POST /api/v1/users', () => {
+    it('should create a new user', (done) => {
+      chai.request(server)
+      .post('/api/v1/users')
+      .send({
+        name: 'Hannah Carstens',
+        email: 'hannah@lax.com',
+        bio: 'This is a relatively short bio.'
+      })
+      .end((err,res) => {
+        res.should.have.status(200);
+        res.should.be.json;
+        res.body.should.be.a('object');
+        res.body.should.have.property('name');
+        res.body.name.should.equal('Hannah Carstens');
+        res.body.should.have.property('email');
+        res.body.email.should.equal('hannah@lax.com');
+        res.body.should.have.property('bio');
+        res.body.bio.should.equal('This is a relatively short bio.');
+        res.body.should.have.property('super_user');
+        res.body.super_user.should.equal(false);
+        done();
+      });
+    });
+  });
+
 });
