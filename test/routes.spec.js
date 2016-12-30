@@ -133,6 +133,7 @@ describe('API Routes', () => {
     chai.request(server)
     .put('/api/v1/users/1')
     .send({
+      id: 5,
       name: 'Matty G',
       email: 'mattyice@lax.com',
       bio: 'This is a relatively horter biogrpahy.'
