@@ -1,0 +1,7 @@
+{
+  "name": "demoapp",
+  "version": "1.0.0",
+  "main": "app.js",
+  "author": "Matthew Gordon <laxredemption5525@gmail.com>",
+  "license": "MIT"
+}
