@@ -56,21 +56,21 @@ describe('API Routes', () => {
   });
 
   describe('GET /api/v1/users/:id', () => {
-    it('should return a single user', (done) => {
+    it('should return one user', (done) => {
       chai.request(server)
-      .get('/api/v1/1')
+      .get('/api/v1/users/2')
       .end((err, res) => {
         res.should.have.status(200);
         res.should.be.json;
         res.body.should.be.a('object');
-        res.body[0].should.have.property('name');
-        res.body[0].name.should.equal('Brian Gordon');
-        res.body[0].should.have.property('email');
-        res.body[0].email.should.equal('brian@lax.com');
-        res.body[0].should.have.property('bio');
-        res.body[0].bio.should.equal('This is a relatively short bio.');
-        res.body[0].should.have.property('super_user');
-        res.body[0].super_user.should.equal(false);
+        res.body.should.have.property('name');
+        res.body.name.should.equal('Brian Gordon');
+        res.body.should.have.property('email');
+        res.body.email.should.equal('brian@lax.com');
+        res.body.should.have.property('bio');
+        res.body.bio.should.equal('This is a relatively short bio.');
+        res.body.should.have.property('super_user');
+        res.body.super_user.should.equal(false);
         done();
       });
     });
